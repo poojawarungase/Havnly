@@ -17,7 +17,7 @@ const cors = require("cors");
 const port=process.env.PORT || 8000;
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://havnlyfrontend.vercel.app/',
     credentials: true
 }));
 
