@@ -1,6 +1,6 @@
 const express = require("express");
 const isAuth = require("../middleware/userauth");
-const { createBooking, getBookingByListingId } = require("../controller/booking");
+const { createBooking } = require("../controller/booking");
 const { cancelBooking } = require("../controller/cancelbooking")
 
 const router = express.Router();

@@ -55,7 +55,7 @@ const addlist = async (req, res) => {
             { new: true });
 
         if (!user) {
-            return res.json({ meassage: `${error}` });
+            return res.json({ message: `${error}` });
         }
 
         // push amenities id in listing collection
@@ -104,6 +104,7 @@ const viewListings = async (req, res) => {
         }
 
         res.status(200).json(listing)
+        return;
 
     } catch (error) {
         res.status(500).json({ message: `view listing :${error}` })
@@ -115,13 +116,13 @@ const getListWithId = async (req, res) => {
     try {
         let { _id } = req.params;
         let listing = await Listing.findById(_id).populate("host", "firstname lastname").populate("bookedBy", "_id");
-        
+
 
         if (!listing) {
             res.status(404).json({ message: "listing not found" })
         }
 
-        return res.status(200).json(listing)
+        return res.status(200).json(listing);
 
 
     } catch (error) {
@@ -191,30 +192,30 @@ const deleteList = async (req, res) => {
 
 }
 
-const search=async(req,res)=>{
+const search = async (req, res) => {
 
     try {
 
-        const {query}=req.query;
+        const { query } = req.query;
 
-        if(!query){
-            return res.status(400).json({message:"search query is required"});
+        if (!query) {
+            return res.status(400).json({ message: "search query is required" });
         }
 
-        const listing=await Listing.find({
-            $or:[
-                {landmark:{$regex:query, $options:"i"}},
-                {city:{$regex:query, $options:"i"}},
-                {title:{ $regex:query,$options:"i"}},
-                {description:{$regex:query,$options:"i"}},
+        const listing = await Listing.find({
+            $or: [
+                { landmark: { $regex: query, $options: "i" } },
+                { city: { $regex: query, $options: "i" } },
+                { title: { $regex: query, $options: "i" } },
+                { description: { $regex: query, $options: "i" } },
             ]
         });
 
         return res.status(200).json(listing);
-        
+
     } catch (error) {
         console.log(error);
-        return res.status(500).json({message:"internal server error"})
+        return res.status(500).json({ message: "internal server error" })
     }
 }
 

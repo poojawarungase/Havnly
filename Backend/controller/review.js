@@ -7,7 +7,7 @@ const addReview = async (req, res) => {
     try {
 
         const { id } = req.params;
-        console.log("Received ID from frontend:", id);
+        // console.log("Received ID from frontend:", id);
 
         const { comment, rating } = req.body;
 

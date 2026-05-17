@@ -14,7 +14,9 @@ const verifyToken = (token) => {
     return checkToken;
 }
 
+
 module.exports = {
     genToken,
     verifyToken,
 }
+// mongodb+srv://varshawarungase:<db_password>@cluster-airbnb.opbsoof.mongodb.net/?appName=Cluster-airbnb
