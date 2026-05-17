@@ -6,7 +6,7 @@ export const authContext = createContext();
 
 const Auth = ({ children }) => {
 
-  let serverUrl = "https://havnlybackend.vercel.app/";
+  let serverUrl = "https://havnlybackend.vercel.app";
 
   let value = {
     serverUrl
