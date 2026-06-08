@@ -57,10 +57,15 @@ const Nav = () => {
     }
 
     useEffect(() => {
-        setSclose(false); 
-        handleSearch(input)
-    }, [input])
-
+        if (!input.trim()) {
+            setSclose(true);
+            setSearchdata([]);
+            return;
+        }
+    
+        setSclose(false);
+        handleSearch(input);
+    }, [input]);
 
     return (
         <div>
@@ -78,6 +83,14 @@ const Nav = () => {
 
                 {!SClose && searchData?.length > 0 && <div className='  md:h-[450px] h-[300px] flex flex-col gap-[20px] absolute md:top-20 top-36 overflow-auto left-[10%] scrollbar-hide lg:left-[20%] md:left-[17%] xl:left-[30%] justify-start items-center'>
                     <div className='lg:max-w-[600px] md:max-w-[400px] max-w-[280px] w-[100vw] md:h-[220px] h-[180px] overflow-hidden flex flex-col bg-green-100 p-[20px] rounded-lg border-[1px] border-gray-400 cursor-pointer z-50 overflow-y-auto scrollbar-hide'>
+                        <MdClear
+                className='absolute top-2 right-2 h-6 w-6 cursor-pointer text-white bg-green-900 '
+                onClick={() => {
+                    setSclose(true);
+                    setSearchdata([]);
+                    setInput("");
+                }}
+            />
                         {
                             searchData.map((search) => (
                                 <div className='border-b border-black md:p-[10px] p-1 ' onClick={(e)=>handleClick(search._id)}>
