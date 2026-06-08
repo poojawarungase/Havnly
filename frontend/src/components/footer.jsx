@@ -9,7 +9,7 @@ import Assistant from './assistant';
 const Footer = () => {
     return (
         <div>
-            <div className='h-[100vh] lg:h-[60vh] md:h-[50vh]  w-[100vw] bg-gray-100 flex flex-col justify-center items-center md:justify-evenly'>
+            <div className='h-[100vh] lg:h-[40vh] md:h-[40vh]  w-[100vw] bg-gray-100 flex flex-col justify-center items-center md:justify-evenly'>
                 <div className='md:grid md:grid-cols-3 md:gap-10 flex flex-col justify-center lg:gap-40 items-center lg:h-[70%] h-[70%] py-5'>
                     <div className='py-2' >
                         <h1 className='font-semibold text-xl lg:text-2xl'>Support</h1>
